@@ -21,7 +21,7 @@ app.get('/alunos/:id', (req, res) => {
 })
 
 /* Post - rota para inserir alunos */
-app.post('/alunos/', (req,res) => {
+app.post('/alunos', (req,res) => {
     res.send('Inserindo alunos');
 })
 
