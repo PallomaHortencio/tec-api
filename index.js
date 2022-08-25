@@ -1,7 +1,15 @@
 import express from "express";
+import {ler} from "./src/aluno.js";
 
 const app = express();
 const porta = 3000;
+
+
+/* Configurando suporte ao formato JSON */
+app.use(express.json());
+
+/* Configurando suporte a dados de inputs de formulario */
+app.use(express.urlencoded({extended : true}));
 
 /* Rotas */
 
@@ -12,7 +20,8 @@ app.get('/', (req, res) => {
 
 /* Rota (endpoint) para exibir todos os alunos */
 app.get('/alunos', (req, res) => {
-    res.send('Exibindo todos os alunos');
+   // res.send('Exibindo todos os alunos');
+   ler(res);
 })
 
 /* Rota (endpoint) para exibir um unico aluno */
