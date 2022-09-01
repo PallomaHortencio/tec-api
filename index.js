@@ -1,5 +1,5 @@
 import express from "express";
-import {ler, inserir, lerUm, atualizar} from "./src/aluno.js";
+import {ler, inserir, lerUm, atualizar, excluir} from "./src/aluno.js";
 
 const app = express();
 const porta = 3000;
@@ -62,7 +62,10 @@ app.patch('/alunos/:id', (req, res) => {
 
 /* Delete - excluir aluno */
 app.delete('/alunos/:id', (req, res) => {
-    res.send('Excluir aluno');
+    // res.send('Excluir aluno');
+
+    const id = parseInt(req.params.id);
+    excluir(id, res);
 })
 
 

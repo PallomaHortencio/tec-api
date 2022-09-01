@@ -82,4 +82,18 @@ function atualizar(id, aluno, res) {
 }
 
 
-export {ler, inserir, lerUm, atualizar};
+// função excluir
+function excluir(id, res) {
+    const sql = "DELETE FROM alunos WHERE id = ?";
+
+    conexao.query(sql, id, (erro, resultados) => {
+        if(erro) {
+            res.status(400).json(erro.code);
+        } else {
+            res.status(200).json({"status" : "aluno excluido com sucesso", id});
+        }
+    });
+}
+
+
+export {ler, inserir, lerUm, atualizar, excluir};
