@@ -2,7 +2,8 @@ import express from "express";
 import {ler, inserir, lerUm, atualizar, excluir} from "./src/aluno.js";
 
 const app = express();
-const porta = 3000;
+const porta = process.env.PORT || 3000;
+/* process - a hospedagem escolhe a porta que vai usar */
 
 
 /* Configurando suporte ao formato JSON */
